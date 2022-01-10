@@ -8,8 +8,8 @@ $('#btnCalc').click(function () {
     let intexPct = Math.round(($('#intexScore').val() * .1) * 100) / 100
 
     /*calculate overall course score out of 100, assign letter grade*/
-    overallScore = (assignPct + grpPrjtPct + quizPct + examPct + intexPct)
-    letterGrade = ''
+    let overallScore = (assignPct + grpPrjtPct + quizPct + examPct + intexPct)
+    let letterGrade = ''
     if (overallScore >= 94) {
         letterGrade = 'A' 
     } else if (overallScore >= 90) {
