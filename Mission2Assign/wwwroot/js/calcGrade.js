@@ -1,11 +1,11 @@
 ﻿/*function for calculating grade:*/
 $('#btnCalc').click(function () {
     /*get values from form, round to two decimal places*/
-    assignPct = Math.round(($('#assignScore').val() * .55) * 100) / 100
-    grpPrjtPct = Math.round(($('#grpPrjtScore').val() * .05) * 100) / 100
-    quizPct = Math.round(($('#quizScore').val() * .1) * 100) / 100
-    examPct = Math.round(($('#examScore').val() * .2) * 100) / 100
-    intexPct = Math.round(($('#intexScore').val() * .1) * 100) / 100
+    let assignPct = Math.round(($('#assignScore').val() * .55) * 100) / 100
+    let grpPrjtPct = Math.round(($('#grpPrjtScore').val() * .05) * 100) / 100
+    let quizPct = Math.round(($('#quizScore').val() * .1) * 100) / 100
+    let examPct = Math.round(($('#examScore').val() * .2) * 100) / 100
+    let intexPct = Math.round(($('#intexScore').val() * .1) * 100) / 100
 
     /*calculate overall course score out of 100, assign letter grade*/
     overallScore = (assignPct + grpPrjtPct + quizPct + examPct + intexPct)
