@@ -1,0 +1,13 @@
+﻿body {
+    color: dimgray;
+}
+
+img {
+    width: 500px;
+    height: auto;
+}
+
+.output {
+    color: black;
+    font-weight: bold;
+}
