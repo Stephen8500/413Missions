@@ -1,5 +1,6 @@
 ﻿/// function for loading message on page load:
 window.onload = function () {
+    /// checks for sessionstorage variable before putting it on the page
     if (sessionStorage.getItem('message')) {
         let message = sessionStorage.getItem('message')
         sessionStorage.removeItem('message')
@@ -44,8 +45,9 @@ $('#btnCalc').click(function () {
         letterGrade = 'E'
     }
 
+    /// set message
     let message = 'Overall grade: ' + overallScore + '%, Letter grade: ' + letterGrade
 
-    /*change value of html p tag with id output to reflect calculated course grade and letter grade*/
+    /*save value to session storage to reflect calculated course grade and letter grade*/
     sessionStorage.setItem('message', message)
 })
