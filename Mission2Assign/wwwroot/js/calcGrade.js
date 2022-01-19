@@ -1,4 +1,12 @@
-﻿/*function for calculating grade:*/
+﻿/// function for loading message on page load:
+window.onload = function () {
+    if (sessionStorage.getItem('message')) {
+        let message = sessionStorage.getItem('message')
+        sessionStorage.removeItem('message')
+        $('#output').text(message)
+    }
+};
+/*function for calculating grade:*/
 $('#btnCalc').click(function () {
     /*get values from form, round to two decimal places*/
     let assignPct = Math.round(($('#assignScore').val() * .55) * 100) / 100
@@ -36,6 +44,8 @@ $('#btnCalc').click(function () {
         letterGrade = 'E'
     }
 
+    let message = 'Overall grade: ' + overallScore + '%, Letter grade: ' + letterGrade
+
     /*change value of html p tag with id output to reflect calculated course grade and letter grade*/
-    $('#output').text('Overall grade: ' + overallScore + '%, Letter grade: ' + letterGrade)
+    sessionStorage.setItem('message', message)
 })

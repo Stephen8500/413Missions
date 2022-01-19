@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewData["Title"]</title>
     <!--browser tab icon-->
     <link href="~/img/favicon.ico" rel="icon" />
     <!--Links to files in project-->
@@ -18,12 +18,10 @@
         <a asp-controller="Profile" asp-action="Index">Home</a>
         <a asp-controller="Profile" asp-action="GradeCalculator">Grade Calc</a>
     </nav>
-
+    <h1>@ViewData["Header"]</h1>
     <div>
         @RenderBody()
     </div>
 
-    <!--Links to javascript files-->
-    <script src="~/js/calcGrade.js"></script>
 </body>
 </html>
