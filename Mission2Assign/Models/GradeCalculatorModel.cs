@@ -10,19 +10,19 @@ namespace Mission2Assign.Models
     {
         [Range(0,100)]
         [Required]
-        public int AssignScore { get; set; }
+        public int? AssignScore { get; set; }
         [Range(0, 100)]
         [Required]
-        public int GrpPrjtScore { get; set; }
+        public int? GrpPrjtScore { get; set; }
         [Range(0, 100)]
         [Required]
-        public int QuizScore { get; set; }
+        public int? QuizScore { get; set; }
         [Range(0, 100)]
         [Required]
-        public int ExamScore { get; set; }
+        public int? ExamScore { get; set; }
         [Range(0, 100)]
         [Required]
-        public int IntexScore { get; set; }
+        public int? IntexScore { get; set; }
 
     }
 }
