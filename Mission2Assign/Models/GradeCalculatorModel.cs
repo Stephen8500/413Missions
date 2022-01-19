@@ -8,6 +8,7 @@ namespace Mission2Assign.Models
 {
     public class GradeCalculatorModel
     {
+        // validate and define input variables
         [Range(0,100)]
         [Required]
         public int? AssignScore { get; set; }
