@@ -27,6 +27,7 @@ namespace MovieMissionAssign
         {
             services.AddControllersWithViews();
 
+            //add db service to project
             services.AddDbContext<AddMovieContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:MovieDbConnection"]);

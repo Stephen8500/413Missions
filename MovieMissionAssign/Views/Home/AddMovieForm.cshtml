@@ -2,9 +2,11 @@
     ViewData["Title"] = "Add Movie";
 }
 @model MovieMissionAssign.Models.MovieForm 
+<!--Add movie page-->
 <h1>@ViewData["Title"]</h1>
 
 <div>
+    <!--form for adding new movie-->
     <form method="post">
         <label asp-for="Title" >Title:</label>
         <input asp-for="Title" required/><br />
@@ -18,6 +20,7 @@
         <label asp-for="Director">Director:</label>
         <input asp-for="Director" required/><br />
 
+        <!--rating has options of G, PG, PG-13, R (default value is "Select and option" and can't be selected)-->
         <label asp-for="Rating">Rating:</label>
         <select asp-for="Rating" required>
             <option value="none" selected disabled hidden>Select an Option</option>
@@ -27,6 +30,7 @@
             <option value="R">R</option>
         </select><br />
 
+        <!--radio button for boolean edited value-->
         <span>Is it edited?</span>
         <label asp-for="Edited" for="true">Yes</label>
         <input type="radio" asp-for="Edited" id="true" name="Edited" value="true">
@@ -37,6 +41,7 @@
         <label asp-for="LentTo">Lent To:</label>
         <input asp-for="LentTo" /><br />
 
+        <!--max length of notes is 25-->
         <label asp-for="Notes">Notes:</label>
         <input asp-for="Notes" maxlength="25"/><br />
 

@@ -16,6 +16,7 @@ namespace MovieMissionAssign.Models
 
         public DbSet<MovieForm> Movies { get; set; }
 
+        //initial entries to db (seeded in)
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<MovieForm>().HasData(
