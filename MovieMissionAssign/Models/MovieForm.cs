@@ -12,15 +12,19 @@ namespace MovieMissionAssign.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        [Required]
+        [Required(ErrorMessage ="You must enter a movie title")]
         public string Title { get; set; }
-        [Required]
-        public string Category { get; set; }
-        [Required]
+        
+        // foreign key to category table
+        [Required(ErrorMessage ="Please select a category")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        [Required(ErrorMessage = "Please input a valid year")]
         public ushort Year { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must enter a director")]
         public string Director { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must enter a rating")]
         public string Rating { get; set; }
         //rest of vars not required in db
         public bool Edited { get; set; }

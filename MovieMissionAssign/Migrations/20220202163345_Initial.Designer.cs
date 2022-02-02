@@ -8,7 +8,7 @@ using MovieMissionAssign.Models;
 namespace MovieMissionAssign.Migrations
 {
     [DbContext(typeof(AddMovieContext))]
-    [Migration("20220126165425_Initial")]
+    [Migration("20220202163345_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,15 +17,76 @@ namespace MovieMissionAssign.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
+            modelBuilder.Entity("MovieMissionAssign.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Action"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Drama"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Fantasy"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Horror"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryName = "Mystery"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryName = "Romance"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryName = "Thriller"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryName = "Western"
+                        });
+                });
+
             modelBuilder.Entity("MovieMissionAssign.Models.MovieForm", b =>
                 {
                     b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -53,13 +114,15 @@ namespace MovieMissionAssign.Migrations
 
                     b.HasKey("MovieId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
                             MovieId = 1,
-                            Category = "Action",
+                            CategoryId = 1,
                             Director = "Christopher Nolan",
                             Edited = false,
                             Rating = "PG-13",
@@ -69,7 +132,7 @@ namespace MovieMissionAssign.Migrations
                         new
                         {
                             MovieId = 2,
-                            Category = "Action",
+                            CategoryId = 1,
                             Director = "Christopher Nolan",
                             Edited = false,
                             Rating = "PG-13",
@@ -79,13 +142,22 @@ namespace MovieMissionAssign.Migrations
                         new
                         {
                             MovieId = 3,
-                            Category = "Action",
+                            CategoryId = 1,
                             Director = "Christopher Nolan",
                             Edited = false,
                             Rating = "PG-13",
                             Title = "Inception",
                             Year = (ushort)2010
                         });
+                });
+
+            modelBuilder.Entity("MovieMissionAssign.Models.MovieForm", b =>
+                {
+                    b.HasOne("MovieMissionAssign.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

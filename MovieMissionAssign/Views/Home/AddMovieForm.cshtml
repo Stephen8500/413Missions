@@ -3,26 +3,34 @@
 }
 @model MovieMissionAssign.Models.MovieForm 
 <!--Add movie page-->
-<h1>@ViewData["Title"]</h1>
+<h1>Movie Details</h1>
 
 <div>
     <!--form for adding new movie-->
     <form method="post">
-        <label asp-for="Title" >Title:</label>
-        <input asp-for="Title" required/><br />
+        <div asp-validation-summary="All"></div>
 
-        <label asp-for="Category">Category:</label>
-        <input asp-for="Category" required/><br />
+        <label asp-for="Title" >Title:</label>
+        <input asp-for="Title" /><br />
+
+        <label asp-for="CategoryId">Category:</label>
+        <select required asp-for="CategoryId">
+            <option value="none" selected disabled hidden>Select an Option</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select><br />
 
         <label asp-for="Year">Year:</label>
-        <input asp-for="Year" required/><br />
+        <input asp-for="Year" /><br />
 
         <label asp-for="Director">Director:</label>
-        <input asp-for="Director" required/><br />
+        <input asp-for="Director" /><br />
 
         <!--rating has options of G, PG, PG-13, R (default value is "Select and option" and can't be selected)-->
         <label asp-for="Rating">Rating:</label>
-        <select asp-for="Rating" required>
+        <select asp-for="Rating" >
             <option value="none" selected disabled hidden>Select an Option</option>
             <option value="G">G</option>
             <option value="PG">PG</option>
@@ -45,6 +53,6 @@
         <label asp-for="Notes">Notes:</label>
         <input asp-for="Notes" maxlength="25"/><br />
 
-        <button type="submit">Add Movie</button>
+        <button type="submit">Save Changes</button>
     </form>
 </div>
