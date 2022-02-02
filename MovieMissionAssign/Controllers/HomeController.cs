@@ -91,6 +91,7 @@ namespace MovieMissionAssign.Controllers
         [HttpPost]
         public IActionResult Edit(MovieForm mf)
         {
+            //check for errors in inputs
             if (ModelState.IsValid)
             {
                 //make changes in db
@@ -100,6 +101,7 @@ namespace MovieMissionAssign.Controllers
                 //return user to movielist page
                 return RedirectToAction("MovieList");
             }
+            //if errors: show error messages in same view
             else
             {
                 ViewBag.Categories = MovieContext.Categories.ToList();

@@ -6,9 +6,11 @@
 <h2>Confirm Deletion</h2>
 <h3>Are you sure you want to delete @Model.Title?</h3>
 
+<!--form to submit post if deletion confirmed, redirect to MovieList if cancelled-->
 <form method="post" asp-controller="Home" asp-action="Delete">
     <button type="submit">Delete</button>
     <a class="btn btn-dark" asp-controller="Home" asp-action="MovieList">Cancel</a>
 
+    <!--include hidden input with movie id so that the controller receives the movie id of the movie to be deleted-->
     <input type="hidden" asp-for="MovieId"/>
 </form>

@@ -3,6 +3,7 @@
 }
 @model List<MovieForm>
 
+<!--table showing list of movies-->
 <table class="table table-bordered table-striped table-dark">
     
     <thead class="font-weight-bold h3">
@@ -18,6 +19,7 @@
         </tr>
     </thead>
 
+    <!--create list of movies in table, row by row in for loop-->
     <tbody>
         @foreach (var x in Model)
             {
@@ -31,6 +33,7 @@
             <td>@x.LentTo</td>
             <td>@x.Notes</td>
 
+            <!--buttons for editing/deleting movies-->
             <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.MovieId" class="btn btn-outline-light">Edit</a></td>
             <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.MovieId" class="btn btn-outline-light">Delete</a></td>
         </tr>
