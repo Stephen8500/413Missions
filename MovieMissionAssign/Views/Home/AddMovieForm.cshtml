@@ -15,8 +15,8 @@
         
         <!--dropdown using all categories in the db table-->
         <label asp-for="CategoryId">Category:</label>
-        <select required asp-for="CategoryId">
-            <option value="none" selected disabled hidden>Select an Option</option>
+        <select asp-for="CategoryId">
+            <option value="" hidden>Select an Option</option>
             @foreach (Category c in ViewBag.Categories)
             {
                 <option value="@c.CategoryId">@c.CategoryName</option>

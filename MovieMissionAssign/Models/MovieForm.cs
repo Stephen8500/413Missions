@@ -15,13 +15,9 @@ namespace MovieMissionAssign.Models
         [Required(ErrorMessage ="You must enter a movie title")]
         public string Title { get; set; }
         
-        // foreign key to category table
-        [Required(ErrorMessage ="Please select a category")]
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
         [Required(ErrorMessage = "Please input a valid year")]
-        public ushort Year { get; set; }
+        //nullable to make sure correct error message 
+        public ushort? Year { get; set; }
         [Required(ErrorMessage = "You must enter a director")]
         public string Director { get; set; }
         [Required(ErrorMessage = "You must enter a rating")]
@@ -30,6 +26,12 @@ namespace MovieMissionAssign.Models
         public bool Edited { get; set; }
         public string LentTo { get; set; }
         public string Notes { get; set; }
+
+        // foreign key to category table
+        [Required(ErrorMessage = "Please select a category")]
+        //nullable to be sure correct error message shows if empty
+        public int? CategoryId { get; set; }
+        public Category Category { get; set; }
 
     }
 }
