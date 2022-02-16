@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,13 +12,36 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
-        }
+        private IBookStoreRepository repo;
 
-        public IActionResult Index()
+        public HomeController(IBookStoreRepository temp) => repo = temp;
+
+        //index get view
+        public IActionResult Index(int pageNum = 1)
         {
-            return View();
+            // max books per page: 10
+            int pageSize = 10;
+
+            // create variable to pass into view with books and page info
+            var x = new BooksViewModel
+            {
+                // books queryable list
+                Books = repo.Books
+                .OrderBy(b => b.Title)
+                .Skip(pageSize * (pageNum - 1))
+                .Take(pageSize),
+
+                // page info saved as type page info
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            //return view, pass in BooksViewModel with info necessary
+            return View(x);
         }
     }
 }
