@@ -16,6 +16,7 @@ namespace BookStore.Components
             repo = temp;
         }
 
+        // gets a list of categories for category component
         public IViewComponentResult Invoke()
         {
             ViewBag.SelectedCategory = RouteData?.Values["BookCategory"];

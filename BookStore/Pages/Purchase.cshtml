@@ -7,6 +7,7 @@
 
 <table class="table table-bordered table-striped">
     
+    <!--column names-->
     <thead>
         <tr>
             <th>Item</th>
@@ -16,6 +17,7 @@
         </tr>
     </thead>
 
+    <!--items in cart-->
     <tbody>
         @foreach (var i in Model.shoppingCart.Items)
     {
@@ -28,6 +30,7 @@
     }
     </tbody>
 
+    <!--total for purchase-->
     <tfoot>
         <tr>
             <td colspan="3">Total: </td>
@@ -37,6 +40,7 @@
 
 </table>
 
+<!--button for returning to shopping-->
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
 </div>

@@ -64,6 +64,7 @@ namespace BookStore
 
             app.UseAuthorization();
 
+            // endpoints for various requests
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("categorypage", "{bookCategory}/Page-{pageNum}", new { Controller = "Home", action = "Index" });

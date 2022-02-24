@@ -22,6 +22,7 @@ namespace BookStore.Pages
         public string ReturnUrl { get; set; }
 
 
+        //gets session storage values for cart along with url for returning to shopping
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
@@ -29,6 +30,8 @@ namespace BookStore.Pages
             shoppingCart = HttpContext.Session.GetJson<ShoppingCart>("shoppingCart") ?? new ShoppingCart();
         }
 
+
+        //saves values to session storage
         public IActionResult OnPost(int bookid, string returnUrl)
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookID == bookid);

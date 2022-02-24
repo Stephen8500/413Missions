@@ -25,7 +25,7 @@ namespace BookStore.Controllers
             // create variable to pass into view with books and page info
             var x = new BooksViewModel
             {
-                // books queryable list
+                // books queryable list with only books in this category (if there is one)
                 Books = repo.Books
                 .Where(b => b.Category == bookCategory || bookCategory == null)
                 .OrderBy(b => b.Title)
