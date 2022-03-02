@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BookStore</title>
     <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -27,10 +28,17 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <div class="bg-dark text-white p-2">
-            <span class="navbar-brand ml-2">BOOK STORE</span>
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">BOOK STORE</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary></vc:cart-summary>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="container">
         <div class="row m-1 p-1">
             <div id="categories" class="col-3">
                 <vc:categories></vc:categories>
