@@ -1,13 +1,15 @@
 ﻿@{ 
-
+    ViewData["Title"] = "Bowler Info";
 }
 @model BowlingLeagueApp.Models.Bowler
 
 <h1>Bowler's Info</h1>
 
 <div>
-    <form method="post" asp-controller="home" asp-action="form">
+    <form method="post" asp-controller="Home" asp-action="Form">
         <div asp-validation-summary="All"></div>
+
+        <input type="hidden" asp-for="BowlerID" value="@ViewBag.Id" />
 
         <label asp-for="BowlerFirstName">First Name:</label>
         <input asp-for="BowlerFirstName" /><br />

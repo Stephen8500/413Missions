@@ -5,6 +5,8 @@
 
 <h1>Bowlers</h1>
 
+<a class="btn btn-success" asp-controller="Home" asp-action="Add">Add New Bowler</a>
+<br />
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
@@ -31,6 +33,14 @@
             <td>@b.BowlerState</td>
             <td>@b.BowlerZip</td>
             <td>@b.BowlerPhoneNumber</td>
+
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@b.BowlerID" class="btn btn-warning">Edit</a></td>
+            <td>
+                <form type="post" asp-controller="Home" asp-action="Delete">
+                    <input type="hidden" id="id" name="id" value="@b.BowlerID" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
         </tr>
         }
     </tbody>

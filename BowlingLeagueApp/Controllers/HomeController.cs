@@ -30,6 +30,7 @@ namespace BowlingLeagueApp.Controllers
         public IActionResult Add()
         {
             ViewBag.Teams = _context.Teams.ToList();
+            ViewBag.Id = 0;
 
             return View("Form");
         }
@@ -40,6 +41,7 @@ namespace BowlingLeagueApp.Controllers
             ViewBag.Teams = _context.Teams.ToList();
 
             var bowler = _context.Bowlers.Single(x => x.BowlerID == id);
+            ViewBag.Id = bowler.BowlerID;
 
             return View("Form", bowler);
         }
@@ -72,9 +74,10 @@ namespace BowlingLeagueApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Bowler b)
+        public IActionResult Delete(int id)
         {
-            _context.Bowlers.Remove(b);
+            var bowler = _context.Bowlers.Single(x => x.BowlerID == id);
+            _context.Bowlers.Remove(bowler);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
