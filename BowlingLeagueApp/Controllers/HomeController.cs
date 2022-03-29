@@ -18,9 +18,11 @@ namespace BowlingLeagueApp.Controllers
             _context = temp;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string team)
         {
-            var bowlers = _context.Bowlers.ToList();
+            var bowlers = _context.Bowlers
+                .Where(x => x.Team.TeamName == team || team == null)
+                .ToList();
 
             return View(bowlers);
         }
