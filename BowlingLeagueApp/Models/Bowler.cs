@@ -15,6 +15,7 @@ namespace BowlingLeagueApp.Models
         public string BowlerLastName { get; set; }
         [Required]
         public string BowlerFirstName { get; set; }
+        [MaxLength(1)]
         public string BowlerMiddleInit { get; set; }
         [Required]
         public string BowlerAddress { get; set; }
@@ -26,7 +27,7 @@ namespace BowlingLeagueApp.Models
         public string BowlerZip { get; set; }
         [Required]
         public string BowlerPhoneNumber { get; set; }
-        [Required]
         public int TeamID { get; set; }
+        public Team Team { get; set; }
     }
 }
