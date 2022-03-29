@@ -20,6 +20,8 @@ namespace BowlingLeagueApp.Controllers
 
         public IActionResult Index(string team)
         {
+            ViewBag.SelectedTeam = RouteData?.Values["team"];
+
             var bowlers = _context.Bowlers
                 .Where(x => x.Team.TeamName == team || team == null)
                 .ToList();

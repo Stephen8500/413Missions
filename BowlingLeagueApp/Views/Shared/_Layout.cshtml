@@ -28,13 +28,15 @@
         </nav>
     </header>
     <div class="container">
-        <div id="teams" class="col-3">
-            <vc:teams></vc:teams>
-        </div>
-        <div class="col-9">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+        <div class="row m-1 p-1">
+            <div id="teams" class="col-3">
+                <vc:teams></vc:teams>
+            </div>
+            <div class="col-9">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
     </div>
 

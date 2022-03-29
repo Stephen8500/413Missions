@@ -3,8 +3,8 @@
 }
 @model List<Bowler>
 
-<h1>Bowlers</h1>
 
+<h1>@(ViewBag.SelectedTeam != null ? ViewBag.SelectedTeam : "All Teams")</h1>
 <a class="btn btn-success" asp-controller="Home" asp-action="Add">Add New Bowler</a>
 <br />
 <table class="table table-bordered table-striped table-hover">
