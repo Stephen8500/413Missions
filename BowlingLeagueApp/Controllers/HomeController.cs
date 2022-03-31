@@ -71,6 +71,7 @@ namespace BowlingLeagueApp.Controllers
             }
             else
             {
+                ViewBag.Id = b.BowlerID;
                 ViewBag.Teams = _context.Teams.ToList();
 
                 return View();
